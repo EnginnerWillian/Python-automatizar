@@ -1,4 +1,5 @@
 import os
+
 """Esse environ serve para entrar em pastas"""
 sistema = os.environ  
 
@@ -10,15 +11,15 @@ novo_caminho =  '/Users/w1661an/Documents'
 os.chdir(novo_caminho)
 print(os.getcwd())
 
+"entre em uma pasta e mostra um arquivo"
 
-"""Cria um arquivo dentro da pasta que estamos navegando"""
-os.mkdir("Teste1 ")
+for root, dirs, file in os.walk("/Users/w1661an/Documents"):
+    print(root)
 
-print(os.listdir())
+print(os.getcwd())
 
+os.path.basename(os.getcwd())
+caminho1 = "/Users/w1661an/Documents"
+caminho2 = "/Users/w1661an/Documents/Python"
 
-
-caminho = "/2021/janeiro/21/manha"
-os.makedirs(caminho)
-print(os.listdir())
-os.rmdir(r"Teste1, Teste2")
+print(os.path.commonprefix([caminho1, caminho2]))
