@@ -1,6 +1,7 @@
 import pyautogui
+import pandas
 from time import sleep
-from mouseinfo import mouseInfo
+
 
 #Usando pyautogui para clicar e escrever automaticamente no banco de dados o nome de usuário
 pyautogui.click(1295,542, duration=2)
