@@ -1,2 +1,2 @@
 USE PYTHONSQL
-SELECT * FROM VENDAS
+SELECT * FROM VENDAS                                                                                                                            
