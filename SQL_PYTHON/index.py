@@ -23,4 +23,4 @@ if regioes:
     
     
 st.metric("Ticket médio", f"R$ {tabela["Valor Total"].mean()}")
-st.bar_chart(tabela.groupby("Região")["Valor Venda"].sum())
+st.bar_chart(tabela.groupby("Região")["Valor Venda"].sum(                       ))
