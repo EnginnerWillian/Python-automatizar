@@ -26,4 +26,9 @@ df = pd.Dataframe({
 fig = px.bar(df,x="Fruit", y="Amount", colot="City", barmode="group")
 app.layout = html.Div(children=[html.H1
             childrem="Hello dash"),
-                      ]
+                      ]             
+
+                                                                    
+                                                                    
+                                                                    
+                                                                    
