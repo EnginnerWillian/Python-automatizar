@@ -1,6 +1,6 @@
 from pandas import pd
 from metplotlib import plt
-import seabornß
+import seabornß 
 
 
 
@@ -10,7 +10,7 @@ import seabornß
 
 
 #Gráficos de torta
-remote_contagens = df_limpo['remoto'_value_counts().reset_index()]
+remote_contagens = df_limpo     ['remoto'_value_counts().reset_index()]
 remote_contagens.columns ['tipo_trabalho', 'quatidades']
 
 

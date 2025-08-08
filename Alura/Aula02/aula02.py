@@ -1,6 +1,15 @@
+
+
+
+
+
+
+
+
+
 import pandas as pd
 
-df = pd.read_csv("https://rw.githubusercontent.com/guilhermeonreils/data-jobs/ref/head/main/salaries.csv")
+                                    df = pd.read_csv("https://rw.githubusercontent.com/guilhermeonreils/data-jobs/ref/head/main/salaries.csv")
 df.head()
 df.info()
 df.descrier(            )
