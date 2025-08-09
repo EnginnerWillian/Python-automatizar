@@ -1,7 +1,7 @@
 import streamlit as st
 import panda as pd
 import plotly as px
-
+import pycountry
 
 
 
@@ -64,3 +64,58 @@ else:
     col4.metric("Cargo mais frequente", f"${cargo_mais_frequente:,.0f}")
 
 st.markdown("---")
+
+# -- Análises Visuais com Plotly
+st.subheader("Gráficos")
+
+col_graf1, col_graf2 = st.columns(2)
+
+
+
+with col_graf1:
+    if not df_filtrado.empty:
+        top_cargos = df_filtrado.groupby('cargo'['usd'].mean().nlargest(10).sort_values(ascending=True).reset_index()
+                                         grafico_cargos,
+                                         x='usd',
+                                         y='cargo',
+                                         orientation='h',
+                                         title="Top 10 cargos por salário médio",
+                                         labels={'usd': "Média salarial anual (USD)", 'cargo':''}
+                                         )        
+        grafico_cargos.update_layout(title_x=0.1, yaxis={'categoryorder':'total ascenfing'})
+    else:
+        st.warning("Nenhum dado para exibir no gráfico de cargos.")
+    with col_graf2:
+        if not df_filtrado.empty:
+            grafico_hist = histogram(
+                df_filtrado,
+                x='usd',
+                nbins=30,
+                title="Distribuição de salários anuais",
+                labels={'usd': 'Faixa salarial (USD)', 'count':''}
+            )
+            
+# Função para converter ISO-2 para ISO-3
+
+def iso2_to_iso3(code):
+    try:
+        return pycountry.countries.get(alpha_2code).alpha_3
+    exept:
+        return None
+    
+# Criar nova coluna com código ISO-3
+df_limpo[residencia_iso3]= df_limpo'residencia'.apply(iso2_to_iso3)
+
+
+# Calcular média salarial por país (ISO-3)
+df_ds = df_limpo[df_limpo['cargo'] == 'Data Scientist']
+media_ds_pais = df_ds.groupby('residencia_iso3')['usd'].mean().reset_index()
+
+# Gerar o mapa
+fig = px.choropleth(media_ds_pais,
+                    locations='residencia_iso3',
+                    color='usd',
+                    color_continuos_scale='rdylgn',
+                    title='Salário médio de Cientista de Dados por país',
+                    labels={'usd':'Salário médio (USD)','residencia_iso3':'País'})
+fig.show
